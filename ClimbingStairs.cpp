@@ -1,13 +1,12 @@
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums) {
-        int currmax=nums[0];
-        int maxsofar=nums[0];
-        
-        for(int x=1;x<nums.size();x++){
-            currmax=max(nums[x],currmax+nums[x]);
-            maxsofar=max(maxsofar,currmax);
+    int climbStairs(int n) {
+        int dp[46];
+        dp[1]=1;
+        dp[2]=2;
+        for(int x=3;x<=45;x++){ 
+           dp[x]=dp[x-1]+dp[x-2];
         }
-        return maxsofar;
+        return dp[n];
     }
 };
